@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chainflare Embed</title>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="Description" content="Chainflare Embed" />
+        <meta name="Author" content="Made in one click" />
+        <meta name="Copyright" content="Unlicense" />
+        <meta name="Keywords" content="Chainflare, Embed, Unlicense" />
+        <meta name="Subject" content="Chainflare Embed" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="Chainflare Embed">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="MobileOptimized" content="400">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="google" content="notranslate">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="cleartype" content="on">
+        <meta http-equiv="Content-Language" content="en">
+
+        <style>
+            html, body, iframe {
+                        margin:0;
+                        padding:0;
+                        top:0;
+                        left:0;
+                        bottom:0;
+                        right:0;
+                        height:100%;
+                        z-index:999999;
+                        }
+            iframe {
+                        overflow:hidden;
+                        display:block;
+                        width:100%;
+                        border:none;
+                        }
+            .background {
+                        background-color: #44034f;
+                        }
+        </style>
+
+        <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+        <script src="x-frame-bypass.js" type="module"></script>
+
+    </head>
+    <body>   
+        <iframe is="x-frame-bypass" id="flex" name="flex" title="flex"></iframe>
+        <script>
+            // Extract URL parameter
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            var targetURL = urlParams.get('url');
+
+            // Set default URL
+            var finalURL = 'https://example.com';
+
+            if (targetURL) {
+                var urlWithoutProtocol = targetURL.replace(/^(https?:\/\/)/, ''); 
+                document.getElementById('flex').src = 'https://' + urlWithoutProtocol;
+            } else {
+                document.getElementById('flex').src = finalURL;
+            }
+        </script>
+    </body>
+</html>
